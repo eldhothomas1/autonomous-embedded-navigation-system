@@ -2,6 +2,12 @@
 
 An embedded robotics platform written in **C** for autonomous coordinate-based navigation, real-time sensor processing, closed-loop motor correction, and low-level hardware control on a **MicroBlaze** soft processor using the AMD/Xilinx Vitis toolchain.
 
+<p align="center">
+  <img src="assets/autonomous-robot.jpg" alt="Completed autonomous embedded navigation robot" width="720" />
+</p>
+
+<p align="center"><em>Completed autonomous mobile platform with onboard FPGA, motor-control circuitry, sensor interfaces, and embedded navigation software.</em></p>
+
 The system was designed to operate without tethered control: target coordinates are entered through hardware switches, converted into encoder-based motion targets, and executed through a finite-state navigation controller. Quadrature encoder feedback continuously monitors left/right wheel motion so the controller can correct drift during translation and turning, while ultrasonic ranging provides real-time environmental sensing.
 
 ## System Highlights
@@ -49,7 +55,13 @@ Target Coordinates
 
 Rather than driving the motors open-loop for a fixed amount of time, the controller reads both wheel encoders while the robot is moving. If one wheel advances faster than the other, the software selectively throttles that motor until the two sides converge. The same feedback strategy is used during calibrated turns to reduce accumulated heading error.
 
-## Hardware Interfaces
+## Hardware Platform
+
+<p align="center">
+  <img src="assets/hardware-platform.jpg" alt="Top-down view of the embedded hardware platform" width="720" />
+</p>
+
+<p align="center"><em>Top-down view of the physical platform showing the FPGA development board, breadboarded interface electronics, wheel assembly, and custom mounting hardware.</em></p>
 
 The application communicates directly with memory-mapped peripherals, including:
 
@@ -100,6 +112,9 @@ Encoder counts are continuously compared during movement. The faster side is tem
 
 ```text
 .
+├── assets/
+│   ├── autonomous-robot.jpg   # Completed physical robot
+│   └── hardware-platform.jpg  # Top-down hardware view
 ├── src/
 │   └── main.c                 # Navigation, sensing, motor control, and hardware I/O
 ├── CMakeLists.txt             # Vitis/CMake application build configuration
