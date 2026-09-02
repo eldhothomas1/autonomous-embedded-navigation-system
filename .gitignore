@@ -1,0 +1,23 @@
+# Build artifacts
+/build/
+/export/
+
+# Compiled output
+*.o
+*.d
+*.bin
+*.pdi
+
+# Logs and lock files
+/logs/
+*.log
+*.lock
+
+# Vitis workspace metadata
+.vitisWorkspace.json
+_ide/logs/
+_ide/.wsdata/
+
+# Generated compile database / machine-local config
+compile_commands.json
+app.yaml
